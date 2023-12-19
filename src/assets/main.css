@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url(../vendor/fonts/inter-400.woff2) format('woff2'),
+    url(../vendor/fonts/inter-400.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url(../vendor/fonts/Inter-500.woff2) format('woff2'),
+    url(../vendor/fonts/Inter-500.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src:
+    url(../vendor/fonts/inter-900.woff2) format('woff2'),
+    url(../vendor/fonts/inter-900.woff) format('woff');
+}
+
+@layer base {
+  * {
+    @apply box-content;
+  }
+  body {
+    @apply bg-black not-italic text-white;
+  }
+}
+
+.opacity-link {
+  @apply cursor-pointer transition-opacity duration-300 ease-linear hover:opacity-60;
+}
+
+.popup {
+  @apply fixed bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center;
+  background: rgba(0, 0, 0, 0.5);
+  transition:
+          visibility 0.5s,
+          opacity 0.5s linear;
+}
+
+.popup__close {
+  @apply absolute right-0 top-[-36px] m-0 h-5 w-5 border-none p-0 md:right-[-40px] md:top-[-40px] md:h-8 md:w-8;
+  background: transparent url(../../public/images/CloseIcon.svg) no-repeat center/contain;
+}
+
+.popup_input {
+  @apply box-border h-[27px] w-full border-none p-0 pb-[13px] text-[14px] font-normal leading-[17px] text-black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.popup_error {
+  @apply mt-[5px] min-h-[30px] max-w-[342px] text-[12px] font-normal leading-[15px] text-red-600 opacity-0 transition-opacity md:max-w-[358px];
+}
